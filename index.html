@@ -2,7 +2,7 @@
 <html lang="pt-BR">
 <head>
   <meta charset="UTF-8">
-  <!-- Essa linha faz o site se ajustar à largura do celular. Sem ela, o celular mostra a versão "de computador" bem pequenininha. -->
+  <!-- Faz o site se ajustar à largura do celular. Sem essa linha, o celular mostra a versão "de computador" bem pequenininha. -->
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Poked-x</title>
   <link rel="stylesheet" href="css/style.css">
@@ -24,36 +24,42 @@
     </header>
 
     <div class="barra-pesquisa">
-      <input id="pesquisa-lista" type="search" placeholder="Buscar pelo nome">
-      <select id="filtro-tipo-lista">
+      <input id="pesquisa-lista" type="search" placeholder="Buscar pelo nome" aria-label="Buscar pokémon pelo nome">
+      <select id="filtro-tipo-lista" aria-label="Filtrar por tipo">
         <option value="">Todos os tipos</option>
-        <!-- TODO: preencher os tipos (fogo, água, planta...) pelo JS -->
       </select>
-      <button id="limpar-filtros-lista" type="button">Limpar filtros</button>
+      <button id="limpar-filtros-lista" type="button" class="botao-secundario">Limpar filtros</button>
     </div>
 
+    <p id="mensagem-lista" class="mensagem" role="status"></p>
     <ul id="lista-pokemons" class="grade-cards"></ul>
   </section>
 
   <!-- TELA 3: pastas -->
   <section id="tela-pastas" class="tela">
     <header class="topo">
-      <button id="botao-voltar-lista" type="button">Voltar</button>
+      <button id="botao-voltar-lista" type="button" class="botao-secundario">Voltar</button>
       <h2>Minhas pastas</h2>
     </header>
 
     <div class="barra-pesquisa">
-      <input id="pesquisa-pastas" type="search" placeholder="Buscar nas pastas">
-      <select id="filtro-pasta">
-        <option value="">Todas as pastas</option>
-      </select>
-      <button id="limpar-filtros-pastas" type="button">Limpar filtros</button>
+      <input id="nome-nova-pasta" type="text" placeholder="Nome da nova pasta" aria-label="Nome da nova pasta">
+      <button id="botao-criar-pasta" type="button">Criar pasta</button>
     </div>
 
+    <div class="barra-pesquisa">
+      <input id="pesquisa-pastas" type="search" placeholder="Buscar nas pastas" aria-label="Buscar nas pastas">
+      <select id="filtro-pasta" aria-label="Filtrar por pasta">
+        <option value="">Todas as pastas</option>
+      </select>
+      <button id="limpar-filtros-pastas" type="button" class="botao-secundario">Limpar filtros</button>
+    </div>
+
+    <p id="mensagem-pastas" class="mensagem" role="status"></p>
     <div id="area-pastas"></div>
 
     <!-- Descrição detalhada do pokémon escolhido -->
-    <aside id="detalhes-pokemon" hidden></aside>
+    <aside id="detalhes-pokemon" class="detalhes" hidden></aside>
   </section>
 
   <script src="js/favoritos.js"></script>

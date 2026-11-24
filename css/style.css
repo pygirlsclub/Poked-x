@@ -38,14 +38,29 @@ button {
   font-size: 1rem;
   cursor: pointer;
 }
+.botao-secundario {
+  background: white;
+  color: var(--rosa-choque);
+  border: 2px solid var(--rosa-choque);
+}
 button:focus-visible, input:focus-visible, select:focus-visible {
   outline: 3px solid var(--azul-ciano);
+}
+
+input, select {
+  font-size: 1rem;
+  padding: 8px 12px;
+  border: 2px solid var(--azul-ciano);
+  border-radius: 12px;
+  background: white;
 }
 
 .topo { display: flex; align-items: center; justify-content: space-between; gap: var(--espaco); }
 
 .barra-pesquisa { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--espaco) 0; }
 .barra-pesquisa input { flex: 1 1 200px; }
+
+.mensagem { min-height: 1.4em; margin: 0; }
 
 /* Animação simples da tela 1 */
 @keyframes flutuar {
@@ -54,8 +69,8 @@ button:focus-visible, input:focus-visible, select:focus-visible {
 }
 .animacao-flutuar { width: 200px; animation: flutuar 2s ease-in-out infinite; }
 
-/* Responsivo: celular = 1 coluna; tablet = 2; computador = 4.
-   O navegador escolhe sozinho quantas colunas cabem na largura da tela. */
+/* Responsivo: o navegador escolhe sozinho quantas colunas cabem na largura da tela
+   (1 ou 2 no celular, mais no tablet e no computador). */
 .grade-cards {
   list-style: none;
   padding: 0;
@@ -70,8 +85,36 @@ button:focus-visible, input:focus-visible, select:focus-visible {
   border-radius: 16px;
   padding: var(--espaco);
   text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
-.card-pokemon img { width: 96px; }
+.card-pokemon img { width: 96px; align-self: center; }
+.card-pokemon h3 { margin: 0; text-transform: capitalize; }
+.card-pokemon select, .card-pokemon button { width: 100%; }
+
+.pasta { margin-bottom: calc(var(--espaco) * 2); }
+.pasta-cabecalho { display: flex; align-items: center; justify-content: space-between; gap: var(--espaco); }
+.pasta-cabecalho h3 { margin: 0; color: var(--rosa-choque); }
+
+/* Painel de detalhes: em cima de tudo, no meio da tela */
+.detalhes {
+  position: fixed;
+  inset: 0;
+  margin: auto;
+  width: min(90vw, 420px);
+  height: fit-content;
+  max-height: 85vh;
+  overflow-y: auto;
+  background: white;
+  border: 3px solid var(--rosa-choque);
+  border-radius: 20px;
+  padding: var(--espaco);
+  text-align: center;
+  box-shadow: 0 0 0 100vmax rgba(0, 0, 0, 0.4);
+}
+.detalhes[hidden] { display: none; }
+.detalhes h3 { text-transform: capitalize; }
 
 @media (prefers-reduced-motion: reduce) {
   .animacao-flutuar { animation: none; }
