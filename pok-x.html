@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <!-- Essa linha faz o site se ajustar à largura do celular. Sem ela, o celular mostra a versão "de computador" bem pequenininha. -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Poked-x</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- TELA 1: apresentação -->
+  <section id="tela-apresentacao" class="tela tela-ativa">
+    <h1>Olá, treinadora!</h1>
+    <img id="imagem-pokemon-apresentacao" class="animacao-flutuar" alt="Pokémon de boas-vindas" src="">
+    <button id="botao-comecar" type="button">COMEÇAR</button>
+  </section>
+
+  <!-- TELA 2: lista de pokémons -->
+  <section id="tela-lista" class="tela">
+    <header class="topo">
+      <h2>Pokémons</h2>
+      <button id="botao-ir-pastas" type="button">Minhas pastas</button>
+    </header>
+
+    <div class="barra-pesquisa">
+      <input id="pesquisa-lista" type="search" placeholder="Buscar pelo nome">
+      <select id="filtro-tipo-lista">
+        <option value="">Todos os tipos</option>
+        <!-- TODO: preencher os tipos (fogo, água, planta...) pelo JS -->
+      </select>
+      <button id="limpar-filtros-lista" type="button">Limpar filtros</button>
+    </div>
+
+    <ul id="lista-pokemons" class="grade-cards"></ul>
+  </section>
+
+  <!-- TELA 3: pastas -->
+  <section id="tela-pastas" class="tela">
+    <header class="topo">
+      <button id="botao-voltar-lista" type="button">Voltar</button>
+      <h2>Minhas pastas</h2>
+    </header>
+
+    <div class="barra-pesquisa">
+      <input id="pesquisa-pastas" type="search" placeholder="Buscar nas pastas">
+      <select id="filtro-pasta">
+        <option value="">Todas as pastas</option>
+      </select>
+      <button id="limpar-filtros-pastas" type="button">Limpar filtros</button>
+    </div>
+
+    <div id="area-pastas"></div>
+
+    <!-- Descrição detalhada do pokémon escolhido -->
+    <aside id="detalhes-pokemon" hidden></aside>
+  </section>
+
+  <script src="js/favoritos.js"></script>
+  <script src="js/dados.js"></script>
+  <script src="js/navegacao.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
