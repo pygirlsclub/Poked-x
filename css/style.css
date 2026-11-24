@@ -1,0 +1,78 @@
+/* Cores em um lugar só: se quiser mudar o tema, muda aqui e o site inteiro acompanha */
+:root {
+  --rosa-choque: #ff1493;
+  --azul-ciano: #00e5ff;
+  --fundo: #fff5fa;
+  --texto: #2b2b2b;
+  --espaco: 16px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  font-family: system-ui, sans-serif;
+  background: var(--fundo);
+  color: var(--texto);
+}
+
+/* Todas as telas começam escondidas; só a que tem .tela-ativa aparece */
+.tela { display: none; padding: var(--espaco); min-height: 100vh; }
+.tela-ativa { display: block; }
+
+#tela-apresentacao.tela-ativa {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--espaco);
+  text-align: center;
+}
+
+button {
+  background: var(--rosa-choque);
+  color: white;
+  border: 0;
+  border-radius: 999px;
+  padding: 10px 20px;
+  font-size: 1rem;
+  cursor: pointer;
+}
+button:focus-visible, input:focus-visible, select:focus-visible {
+  outline: 3px solid var(--azul-ciano);
+}
+
+.topo { display: flex; align-items: center; justify-content: space-between; gap: var(--espaco); }
+
+.barra-pesquisa { display: flex; flex-wrap: wrap; gap: 8px; margin: var(--espaco) 0; }
+.barra-pesquisa input { flex: 1 1 200px; }
+
+/* Animação simples da tela 1 */
+@keyframes flutuar {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-12px); }
+}
+.animacao-flutuar { width: 200px; animation: flutuar 2s ease-in-out infinite; }
+
+/* Responsivo: celular = 1 coluna; tablet = 2; computador = 4.
+   O navegador escolhe sozinho quantas colunas cabem na largura da tela. */
+.grade-cards {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  gap: var(--espaco);
+  grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+}
+
+.card-pokemon {
+  background: white;
+  border: 2px solid var(--azul-ciano);
+  border-radius: 16px;
+  padding: var(--espaco);
+  text-align: center;
+}
+.card-pokemon img { width: 96px; }
+
+@media (prefers-reduced-motion: reduce) {
+  .animacao-flutuar { animation: none; }
+}
